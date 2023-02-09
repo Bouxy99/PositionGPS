@@ -1,0 +1,20 @@
+#map {
+    height: 500px;
+    width: 100%;
+  }
+
+.custom-switch{
+    padding-left: 75px;
+}
+
+table {
+  font-size: 25px
+}
+
+label {
+  font-size: 25px
+}
+
+#btn {
+  font-size: 25px
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Position GPS</title>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="./img/location.ico" />
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css"
+  type="text/css">
+<link rel="stylesheet" href="./css/style.css" type="text/css">
+<body>
+<div class="container">
+  <br>
+  <div class="form-inline">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="togglePosition(this)">
+      <label class="custom-control-label" for="customSwitch1">Activer la localisation</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch2" onclick="toggleLink(this)">
+      <label class="custom-control-label" for="customSwitch2">Lier la carte à ma position</label>
+    </div>
+  </div>
+  <br>
+  <div id="map"></div>
+  <br>
+  <br>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Latitude, Longitude</td>
+        <td id="lat_long">-</td>
+      </tr>
+      <tr>
+        <td>Est, Nord (MN95)</td>
+        <td id="est_nord">-</td>
+      </tr>
+      <tr>
+        <td>Altitude</td>
+        <td id="alti">-</td>
+      </tr>
+      <tr>
+        <td>Vitesse</td>
+        <td id="vit">-</td>
+      </tr>
+      <tr>
+        <td>Précision planimétrique</td>
+        <td id="prec_plani">-</td>
+      </tr>
+      <tr>
+        <td>Précision altimétrique</td>
+        <td id="prec_alti">-</td>
+      </tr>
+      <tr>
+        <td>Mise à jour</td>
+        <td id="maj">-</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="form-inline">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch3" onclick="toggleProfil(this)" checked>
+      <label class="custom-control-label" for="customSwitch3">Tracer le profil</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch4" onclick="toggleProfilPrecision(this)">
+      <label class="custom-control-label" for="customSwitch4">Tenir compte de la précision</label>
+    </div>
+  </div>
+  <div id='profil'></div>
+  <button type="button" class="btn btn-secondary" id="button_addStation" onclick="location.href='index.html'">Version simplifiée</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Lien vers la librairie Proj4JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.2/proj4.js"
+  integrity="sha512-cgJnZ1VX2G0MAN4C5OGShwI3zHhfQ6RLriXuukhblNu+T082/ZRGoWLP/0xMKObvB6AUKdnm27hQKj8hKZPjXA=="
+  crossorigin="anonymous"></script>
+<!-- Lien vers la librairie plotly -->
+<script src='https://cdn.plot.ly/plotly-2.6.3.min.js'></script>
+<!-- Librairies internes-->
+<script src="./js/openlayers.js"></script>
+<script src="./js/position.js"></script>
+<script src="./js/profil.js"></script>
+
+</body>
+</html>
